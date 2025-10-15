@@ -68,28 +68,119 @@ function sumMatrix(matrix) {
 }
 
 function rowSum(matrix) {
+    const RowSums = [];
+    for (i = 0; i < matrix.length; i++) {
+        let RowTotal = 0;
+        for (const val of matrix[i]) {
+            RowTotal += val;
+        }
+        RowSums.push(RowTotal)
+    }
+    console.log("The row sum total is:", RowSums);
+    return RowSums;
 }
 
 function colSum(matrix) {
+    const ColSums = [];
+    for (j = 0; j < matrix[0].length; j++){
+        let ColTotal = 0;
+        for (i = 0; i < matrix.length; i++){
+            ColTotal += matrix[i][j];
+        }
+        ColSums.push(ColTotal)
+    }
+    console.log("The column sum total is:", ColSums);
+    return ColSums;
 }
 
 function countZeros(matrix) {
+    let total = 0;
+    for (const row of matrix) {
+        for (const val of row) {
+            if (val === 0) {
+                total++;
+            }
+        }
+    }
+    console.log("The number of zeros is:", total);
+    return total;
 }
 
 function minValue2D(matrix) {
+    let smallest = Infinity;
+    for (const row of matrix) {
+        for (const val of row) {
+            if (val < smallest) {
+                smallest = val;
+            }
+        }
+    }
+    console.log("The smallest value is:", smallest);
+    return smallest;
 }
 
 function maxValue2D(matrix) {
+    let largest = null;
+    for (const row of matrix) {
+        for (const val of row) {
+            if (val > largest) {
+                largest = val;
+            }
+        }
+    }
+    console.log("The largest value is:", largest);
+    return largest;
 }
 
 function doubleMatrix(matrix) {
+    const NewMatrix = [];
+    for (i = 0; i < matrix.length; i++) {
+        const NewRow = [];
+        for(j = 0; j < matrix[i].length; j++) {
+            NewRow.push(matrix[i][j] * 2);
+        }
+        NewMatrix.push(NewRow);
+    }
+    console.log("The doubles of the values are:", NewMatrix);
+    return NewMatrix;
 }
 
 function positiveMap(matrix) {
+    const PositiveMap = []
+    for (i = 0; i < matrix.length; i++) {
+        const NewRow = [];
+        for (j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] > 0) {
+                NewRow.push(true);
+            }
+            else {
+                NewRow.push(false);
+            }
+        }
+        PositiveMap.push(NewRow);
+    }
+    console.log("The integer value is:", PositiveMap);
+    return PositiveMap;
 }
 
 function diagonalSum(matrix) {
+    let DiagonalSum = 0;
+    for (i = 0; i < matrix.length; i++) {
+        DiagonalSum += matrix[i][i];
+    }
+    console.log("The diagonal sum is:", DiagonalSum);
+    return DiagonalSum;
 }
 
 function transposeMatrix(matrix) {
+    const TransposedMatrix = [];
+    for (j = 0; j < matrix[0].length; j++) {
+        const NewRow = [];
+        for (i = 0; i < matrix.length; i++){
+            NewRow.push(matrix[i][j]);
+        }
+        TransposedMatrix.push(NewRow);
+    }
+    console.log("The transposed matrix is:", TransposedMatrix);
+    return TransposedMatrix;
 }
